@@ -2,6 +2,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./App.css";
+import Tasks from "./Tasks";
 
 let globalID = 0;
 function App() {
@@ -19,6 +20,8 @@ function App() {
     setTasks((prevData) => {
       return [...prevData, data];
     });
+    setTitle("");
+    setDescription("");
   };
   const onDelete = (id) => {
     setTasks((prevData) => {
@@ -95,44 +98,7 @@ function App() {
           </h4>
         </div>
         {tasks.map((value, index) => {
-          return (
-            <div
-              className="col-sm-12 col-lg-12 m-3 shadow"
-              style={{ background: "white" }}
-            >
-              <div className="row">
-                <div className="col-sm-6 col-lg-6 d-flex flex-row justify-content-start align-items-center p-2">
-                  <h4 style={{ fontWeight: "bold", color: "#003979" }}>
-                    {`${index + 1}. ${value.title}`}
-                  </h4>
-                </div>
-                <div
-                  className="col-sm-6 col-lg-6 d-flex flex-row justify-content-end align-items-center p-2"
-                  style={{ height: "50%" }}
-                >
-                  <button
-                    className="btn text-white btn-sm"
-                    style={{
-                      background: "#003979",
-                      width: "45%",
-                    }}
-                  >
-                    Completed
-                  </button>
-                  <button
-                    className="btn btn-sm text-white"
-                    style={{
-                      background: "#D60707",
-                      width: "45%",
-                    }}
-                    onClick={() => onDelete(value.id)}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          );
+          return <Tasks data={{ value, index }} delFunc={{ onDelete }} />;
         })}
       </div>
     </div>

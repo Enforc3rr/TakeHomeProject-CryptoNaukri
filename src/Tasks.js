@@ -42,19 +42,7 @@ function Tasks(props) {
             >
               Delete
             </button>
-          ) : (
-            <button
-              className="btn btn-sm text-white"
-              style={{
-                background: "#D60707",
-                width: "45%",
-              }}
-              onClick={() => props.delFunc.onDelete(props.data.value.id)}
-              disabled
-            >
-              Delete
-            </button>
-          )}
+          ) : null}
         </div>
       </div>
     </div>
