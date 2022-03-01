@@ -21,4 +21,4 @@ The given task required asked me to use Material UI to design the web app but du
 
 ### ScreenShot :
 
-[ss](ScreenShot.jpg)
+![ss](ScreenShot.jpg)
